@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://dsxc6d5hk55n6"]
+
+[ext_resource type="Texture2D" uid="uid://7k78carbser5" path="res://assets/Untitled110_20260714154318.png" id="1_7fvvs"]
+[ext_resource type="Script" uid="uid://fgm7b8tt8f0o" path="res://scenes/main_screen.gd" id="1_kusfh"]
+
+[node name="MainScreen" type="Control" unique_id=1466770352]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kusfh")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1621385065]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainLayout" type="VBoxContainer" parent="." unique_id=712670435]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="HBoxContainer" parent="MainLayout" unique_id=60212580]
+layout_mode = 2
+
+[node name="UserButton" type="Button" parent="MainLayout/Header" unique_id=1092058172]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "User"
+
+[node name="Logo" type="TextureRect" parent="MainLayout/Header" unique_id=1456789613]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_7fvvs")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SettingsButton" type="Button" parent="MainLayout/Header" unique_id=1877196221]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Settings"
+
+[node name="Body" type="HBoxContainer" parent="MainLayout" unique_id=351447106]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ClassesPanel" type="PanelContainer" parent="MainLayout/Body" unique_id=1005151258]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+
+[node name="ClassesList" type="VBoxContainer" parent="MainLayout/Body/ClassesPanel" unique_id=1055680198]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ClassTitle" type="Label" parent="MainLayout/Body/ClassesPanel/ClassesList" unique_id=924199825]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Classes"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainLayout/Body/ClassesPanel/ClassesList" unique_id=1772988236]
+layout_mode = 2
+
+[node name="ClassButton1" type="Button" parent="MainLayout/Body/ClassesPanel/ClassesList" unique_id=685153273]
+layout_mode = 2
+text = "Empty Slot"
+
+[node name="ClassButton2" type="Button" parent="MainLayout/Body/ClassesPanel/ClassesList" unique_id=630108225]
+layout_mode = 2
+text = "Empty Slot"
+
+[node name="ClassButton3" type="Button" parent="MainLayout/Body/ClassesPanel/ClassesList" unique_id=1910321134]
+layout_mode = 2
+text = "Empty Slot"
+
+[node name="ClassButton4" type="Button" parent="MainLayout/Body/ClassesPanel/ClassesList" unique_id=1349491214]
+layout_mode = 2
+text = "Empty Slot"
+
+[node name="ClassButton5" type="Button" parent="MainLayout/Body/ClassesPanel/ClassesList" unique_id=1807947350]
+layout_mode = 2
+text = "Empty Slot"
+
+[node name="ClassButton6" type="Button" parent="MainLayout/Body/ClassesPanel/ClassesList" unique_id=889376951]
+layout_mode = 2
+text = "Empty Slot"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainLayout/Body/ClassesPanel/ClassesList" unique_id=1039164176]
+layout_mode = 2
+
+[node name="EditClassesButton" type="Button" parent="MainLayout/Body/ClassesPanel/ClassesList" unique_id=625027551]
+layout_mode = 2
+text = "Edit Classes"
+
+[node name="PokemonPanel" type="PanelContainer" parent="MainLayout/Body" unique_id=125773284]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PokemonDisplay" type="VBoxContainer" parent="MainLayout/Body/PokemonPanel" unique_id=531878968]
+layout_mode = 2
+
+[node name="PokemonNameLabel" type="Label" parent="MainLayout/Body/PokemonPanel/PokemonDisplay" unique_id=880090650]
+layout_mode = 2
+text = "Select a Class"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PokemonSprite" type="TextureRect" parent="MainLayout/Body/PokemonPanel/PokemonDisplay" unique_id=1935087045]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 2
+
+[node name="PokemonLevelLabel" type="Label" parent="MainLayout/Body/PokemonPanel/PokemonDisplay" unique_id=80509865]
+layout_mode = 2
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PokemonXPBar" type="ProgressBar" parent="MainLayout/Body/PokemonPanel/PokemonDisplay" unique_id=1813813067]
+layout_mode = 2
+
+[node name="AttendClassButton" type="Button" parent="MainLayout/Body/PokemonPanel/PokemonDisplay" unique_id=98015459]
+layout_mode = 2
+text = "Attend Class"
+
+[node name="RivalPanel" type="PanelContainer" parent="MainLayout/Body" unique_id=1934262985]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+
+[node name="RivalDisplay" type="VBoxContainer" parent="MainLayout/Body/RivalPanel" unique_id=1810814625]
+layout_mode = 2
+
+[node name="RivalNameLabel" type="Label" parent="MainLayout/Body/RivalPanel/RivalDisplay" unique_id=988784938]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Rival Name"
+horizontal_alignment = 1
+
+[node name="RivalSprite" type="TextureRect" parent="MainLayout/Body/RivalPanel/RivalDisplay" unique_id=1627776752]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 2
+
+[node name="RivalLevelLabel" type="Label" parent="MainLayout/Body/RivalPanel/RivalDisplay" unique_id=47759157]
+layout_mode = 2
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="RivalTeamLabel" type="Label" parent="MainLayout/Body/RivalPanel/RivalDisplay" unique_id=234131655]
+layout_mode = 2
+text = "0 Pokémon"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/ClassButton1" to="." method="_on_class_button_1_pressed"]
