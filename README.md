@@ -34,6 +34,7 @@ A Pokémon-themed attendance and class management application built in Godot and
 - GDScript
 - NetBeans
 - Python
+- (also a little bit of planning in Java)
 
 ## Roadmap
 
