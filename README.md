@@ -25,7 +25,7 @@ A Pokémon-themed attendance and class management application built in Godot and
 
 ### In Progress
 - Class selection system
-- Pokémon data system
+- Pokémon data system/API work
 - Save/load framework
 
 ## Built With
