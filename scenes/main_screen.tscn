@@ -117,10 +117,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PokemonSprite" type="TextureRect" parent="MainLayout/Body/PokemonPanel/PokemonDisplay" unique_id=1935087045]
-custom_minimum_size = Vector2(250, 350)
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
+size_flags_vertical = 3
 expand_mode = 1
-stretch_mode = 2
+stretch_mode = 5
 
 [node name="PokemonLevelLabel" type="Label" parent="MainLayout/Body/PokemonPanel/PokemonDisplay" unique_id=80509865]
 layout_mode = 2
@@ -164,4 +165,10 @@ layout_mode = 2
 text = "0 Pokémon"
 horizontal_alignment = 1
 
+[node name="PokemonRequest" type="HTTPRequest" parent="." unique_id=402906517]
+
+[node name="SpriteRequest" type="HTTPRequest" parent="." unique_id=333151734]
+
 [connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/ClassButton1" to="." method="_on_class_button_1_pressed"]
+[connection signal="request_completed" from="PokemonRequest" to="." method="_on_pokemon_request_request_completed"]
+[connection signal="request_completed" from="SpriteRequest" to="." method="_on_sprite_request_request_completed"]

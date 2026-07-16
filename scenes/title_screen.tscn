@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cqkh8q2rigaak"]
+
+[ext_resource type="Script" uid="uid://b36wfn74dkw6q" path="res://scenes/title_screen.gd" id="1_sa3yf"]
+[ext_resource type="Texture2D" uid="uid://7k78carbser5" path="res://assets/Untitled110_20260714154318.png" id="2_s4lrb"]
+
+[node name="TitleScreen" type="Control" unique_id=1861399084]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sa3yf")
+
+[node name="TitleScreenBackground" type="ColorRect" parent="." unique_id=1862547603]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLayout" type="VBoxContainer" parent="TitleScreenBackground" unique_id=75994193]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="TitleScreenBackground/TitleLayout" unique_id=567430764]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("2_s4lrb")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="TitleScreenBackground/TitleLayout" unique_id=79288370]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="ButtonContainer" type="VBoxContainer" parent="TitleScreenBackground/TitleLayout/MarginContainer" unique_id=2006648972]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="TitleScreenBackground/TitleLayout/MarginContainer/ButtonContainer" unique_id=21522634]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Start New Semester"
+
+[node name="MarginContainer" type="MarginContainer" parent="TitleScreenBackground/TitleLayout/MarginContainer/ButtonContainer" unique_id=879867466]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="TitleScreenBackground/TitleLayout/MarginContainer/ButtonContainer" unique_id=433121465]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Continue Semester"
+
+[node name="MarginContainer2" type="MarginContainer" parent="TitleScreenBackground/TitleLayout/MarginContainer/ButtonContainer" unique_id=2009823819]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="TitleScreenBackground/TitleLayout/MarginContainer/ButtonContainer" unique_id=308738829]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Quit"
+
+[connection signal="pressed" from="TitleScreenBackground/TitleLayout/MarginContainer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="TitleScreenBackground/TitleLayout/MarginContainer/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]

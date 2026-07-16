@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://cxj6u2skclnla"]
+
+[ext_resource type="Script" uid="uid://c6dvbuc8gc2vs" path="res://scenes/character_creation.gd" id="1_n44om"]
+[ext_resource type="Texture2D" uid="uid://ba4ksa5aqjcem" path="res://assets/wastecharacter_1.png" id="2_5nl2f"]
+
+[node name="CharacterCreationScreen" type="Control" unique_id=2005816963]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n44om")
+
+[node name="Background" type="ColorRect" parent="." unique_id=367826902]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainLayout" type="VBoxContainer" parent="." unique_id=981377634]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainLayout" unique_id=704729796]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainLayout" unique_id=187211621]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Welcome to Pokemon Semester!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreationArea" type="HBoxContainer" parent="MainLayout" unique_id=1050524403]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharacterPanel" type="PanelContainer" parent="MainLayout/CreationArea" unique_id=114448955]
+custom_minimum_size = Vector2(300, 350)
+layout_mode = 2
+
+[node name="CharacterPreview" type="VBoxContainer" parent="MainLayout/CreationArea/CharacterPanel" unique_id=211334512]
+layout_mode = 2
+
+[node name="PreviewTitle" type="Label" parent="MainLayout/CreationArea/CharacterPanel/CharacterPreview" unique_id=294018356]
+layout_mode = 2
+text = "Your Character"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharacterSprite" type="TextureRect" parent="MainLayout/CreationArea/CharacterPanel/CharacterPreview" unique_id=317471108]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+texture = ExtResource("2_5nl2f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ChangeCharacterButton" type="Button" parent="MainLayout/CreationArea/CharacterPanel/CharacterPreview" unique_id=1033895457]
+layout_mode = 2
+text = "Change Appearance"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainLayout/CreationArea" unique_id=1342299788]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="InformationPanel" type="PanelContainer" parent="MainLayout/CreationArea" unique_id=2095070027]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InformationForm" type="VBoxContainer" parent="MainLayout/CreationArea/InformationPanel" unique_id=1452955571]
+layout_mode = 2
+
+[node name="TrainerNameLabel" type="Label" parent="MainLayout/CreationArea/InformationPanel/InformationForm" unique_id=473857374]
+layout_mode = 2
+text = "Trainer Name"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TrainerNameInput" type="LineEdit" parent="MainLayout/CreationArea/InformationPanel/InformationForm" unique_id=1414095194]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+placeholder_text = "Enter Your Name"
+
+[node name="MajorLabel" type="Label" parent="MainLayout/CreationArea/InformationPanel/InformationForm" unique_id=2137434899]
+layout_mode = 2
+text = "Major"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MajorInput" type="LineEdit" parent="MainLayout/CreationArea/InformationPanel/InformationForm" unique_id=476868574]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+placeholder_text = "Example: Industrial Engineering"
+
+[node name="YearLabel" type="Label" parent="MainLayout/CreationArea/InformationPanel/InformationForm" unique_id=177072906]
+layout_mode = 2
+text = "School Year"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SchoolYearDropdown" type="OptionButton" parent="MainLayout/CreationArea/InformationPanel/InformationForm" unique_id=1970551499]
+layout_mode = 2
+item_count = 6
+popup/item_0/text = "Freshman"
+popup/item_0/id = 0
+popup/item_1/text = "Sophmore"
+popup/item_1/id = 1
+popup/item_2/text = "Junior"
+popup/item_2/id = 2
+popup/item_3/text = "Senior"
+popup/item_3/id = 3
+popup/item_4/text = "Graduate"
+popup/item_4/id = 4
+popup/item_5/text = "Other"
+popup/item_5/id = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MainLayout/CreationArea/InformationPanel/InformationForm" unique_id=535212217]
+custom_minimum_size = Vector2(20, 75)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MainLayout/CreationArea/InformationPanel/InformationForm" unique_id=216909563]
+layout_mode = 2
+text = "Continue"
+
+[connection signal="pressed" from="MainLayout/CreationArea/CharacterPanel/CharacterPreview/ChangeCharacterButton" to="." method="_on_change_character_button_pressed"]
+[connection signal="pressed" from="MainLayout/CreationArea/InformationPanel/InformationForm/Button" to="." method="_on_button_pressed"]
