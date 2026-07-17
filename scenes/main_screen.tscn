@@ -2,6 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://7k78carbser5" path="res://assets/Untitled110_20260714154318.png" id="1_7fvvs"]
 [ext_resource type="Script" uid="uid://fgm7b8tt8f0o" path="res://scenes/main_screen.gd" id="1_kusfh"]
+[ext_resource type="Texture2D" uid="uid://c7wb4850s7q4c" path="res://assets/MainMenu_Normal.png" id="3_aum10"]
+[ext_resource type="Texture2D" uid="uid://bqk8pibgh06bp" path="res://assets/MainMenu_Pressed.png" id="4_w87pm"]
+[ext_resource type="Texture2D" uid="uid://bow14cvpiocq2" path="res://assets/MainMenu_Hover.png" id="5_a46j4"]
+[ext_resource type="BitMap" uid="uid://chp06vxnjpj88" path="res://assets/MainMenu_ClickMask.png" id="6_a46j4"]
 
 [node name="MainScreen" type="Control" unique_id=1466770352]
 layout_mode = 3
@@ -103,6 +107,18 @@ layout_mode = 2
 layout_mode = 2
 text = "Edit Classes"
 
+[node name="MainMenuButton" type="TextureButton" parent="MainLayout/Body/ClassesPanel/ClassesList" unique_id=1043940475]
+custom_minimum_size = Vector2(180, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_aum10")
+texture_pressed = ExtResource("4_w87pm")
+texture_hover = ExtResource("5_a46j4")
+texture_click_mask = ExtResource("6_a46j4")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="PokemonPanel" type="PanelContainer" parent="MainLayout/Body" unique_id=125773284]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -170,5 +186,12 @@ horizontal_alignment = 1
 [node name="SpriteRequest" type="HTTPRequest" parent="." unique_id=333151734]
 
 [connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/ClassButton1" to="." method="_on_class_button_1_pressed"]
+[connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/ClassButton2" to="." method="_on_class_button_2_pressed"]
+[connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/ClassButton3" to="." method="_on_class_button_3_pressed"]
+[connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/ClassButton4" to="." method="_on_class_button_4_pressed"]
+[connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/ClassButton5" to="." method="_on_class_button_5_pressed"]
+[connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/ClassButton6" to="." method="_on_class_button_6_pressed"]
+[connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/EditClassesButton" to="." method="_on_edit_classes_button_pressed"]
+[connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="request_completed" from="PokemonRequest" to="." method="_on_pokemon_request_request_completed"]
 [connection signal="request_completed" from="SpriteRequest" to="." method="_on_sprite_request_request_completed"]

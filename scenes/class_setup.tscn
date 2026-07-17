@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dlrn7lkcwxncv"]
 
+[ext_resource type="Script" uid="uid://cndrbrxw3be4c" path="res://scenes/class_setup.gd" id="1_hp0sw"]
+
 [node name="ClassSetup" type="Control" unique_id=1472811781]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hp0sw")
 
 [node name="Background" type="ColorRect" parent="." unique_id=2094505414]
 layout_mode = 1
@@ -23,3 +26,73 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="MainLayout" unique_id=1725662876]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Choose Your Classes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClassLayout" type="VBoxContainer" parent="MainLayout" unique_id=613946963]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MainLayout/ClassLayout" unique_id=494443309]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+
+[node name="ClassEdit1" type="LineEdit" parent="MainLayout/ClassLayout" unique_id=2119704639]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "Enter Class 1"
+alignment = 1
+
+[node name="ClassEdit2" type="LineEdit" parent="MainLayout/ClassLayout" unique_id=1688062911]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "Enter Class 2"
+alignment = 1
+
+[node name="ClassEdit3" type="LineEdit" parent="MainLayout/ClassLayout" unique_id=1099245848]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "Enter Class 3"
+alignment = 1
+
+[node name="ClassEdit4" type="LineEdit" parent="MainLayout/ClassLayout" unique_id=1472170767]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "Enter Class 4"
+alignment = 1
+
+[node name="ClassEdit5" type="LineEdit" parent="MainLayout/ClassLayout" unique_id=1468052237]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "Enter Class 5"
+alignment = 1
+
+[node name="ClassEdit6" type="LineEdit" parent="MainLayout/ClassLayout" unique_id=1741850363]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "Enter Class 6"
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainLayout/ClassLayout" unique_id=710443701]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MainLayout/ClassLayout" unique_id=1219272205]
+layout_mode = 2
+text = "Start Semester"
+
+[connection signal="pressed" from="MainLayout/ClassLayout/Button" to="." method="_on_button_pressed"]

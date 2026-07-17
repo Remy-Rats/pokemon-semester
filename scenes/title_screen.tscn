@@ -68,5 +68,16 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Quit"
 
+[node name="MarginContainer2" type="MarginContainer" parent="TitleScreenBackground/TitleLayout" unique_id=223121646]
+custom_minimum_size = Vector2(20, 40)
+layout_mode = 2
+
+[node name="ResetSaveDataButton" type="Button" parent="TitleScreenBackground/TitleLayout" unique_id=1702711310]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Reset Save Data"
+
 [connection signal="pressed" from="TitleScreenBackground/TitleLayout/MarginContainer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="TitleScreenBackground/TitleLayout/MarginContainer/ButtonContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="TitleScreenBackground/TitleLayout/MarginContainer/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="TitleScreenBackground/TitleLayout/ResetSaveDataButton" to="." method="_on_reset_save_data_button_pressed"]

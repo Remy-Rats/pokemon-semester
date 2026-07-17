@@ -11,26 +11,49 @@ func _ready() -> void:
 	print("Major: ", GameData.major)
 	print("Year: ", GameData.school_year)
 	print("Character: ", GameData.character_index)
+	update_class_buttons()
 
 
-func _on_class_button_1_pressed():
-	selected_class = 0
-	
+func select_class(class_index: int) -> void:
+	if class_index >= GameData.class_pokemon_ids.size():
+		return
+
+	selected_class = class_index
 
 	$MainLayout/Body/PokemonPanel/PokemonDisplay/PokemonNameLabel.text = "Loading..."
 
+	var pokemon_id = GameData.class_pokemon_ids[class_index]
+
 	var error = $PokemonRequest.request(
-		"https://pokeapi.co/api/v2/pokemon/1"
+		"https://pokeapi.co/api/v2/pokemon/" + str(pokemon_id)
 	)
 
 	if error != OK:
 		print("Could not start Pokémon request.")
 
 
+func _on_class_button_1_pressed() -> void:
+	select_class(0)
+
+func _on_class_button_2_pressed() -> void:
+	select_class(1)
+
+func _on_class_button_3_pressed() -> void:
+	select_class(2)
+
+func _on_class_button_4_pressed() -> void:
+	select_class(3)
+
+func _on_class_button_5_pressed() -> void:
+	select_class(4)
+
+func _on_class_button_6_pressed() -> void:
+	select_class(5)
+
 func _on_pokemon_request_request_completed(
-	result,
+	_result,
 	response_code,
-	headers,
+	_headers,
 	body
 ):
 	if response_code != 200:
@@ -58,9 +81,9 @@ func _on_pokemon_request_request_completed(
 
 
 func _on_sprite_request_request_completed(
-	result,
+	_result,
 	response_code,
-	headers,
+	_headers,
 	body
 ):
 	if response_code != 200:
@@ -77,3 +100,31 @@ func _on_sprite_request_request_completed(
 	var texture = ImageTexture.create_from_image(image)
 
 	$MainLayout/Body/PokemonPanel/PokemonDisplay/PokemonSprite.texture = texture
+
+func update_class_buttons() -> void:
+	var class_buttons = [
+		$MainLayout/Body/ClassesPanel/ClassesList/ClassButton1,
+		$MainLayout/Body/ClassesPanel/ClassesList/ClassButton2,
+		$MainLayout/Body/ClassesPanel/ClassesList/ClassButton3,
+		$MainLayout/Body/ClassesPanel/ClassesList/ClassButton4,
+		$MainLayout/Body/ClassesPanel/ClassesList/ClassButton5,
+		$MainLayout/Body/ClassesPanel/ClassesList/ClassButton6
+	]
+
+	for i in range(class_buttons.size()):
+		if i < GameData.classes.size():
+			class_buttons[i].text = GameData.classes[i]
+			class_buttons[i].disabled = false
+		else:
+			class_buttons[i].text = "Empty Slot"
+			class_buttons[i].disabled = true
+
+
+func _on_edit_classes_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/class_setup.tscn")
+
+
+func _on_main_menu_button_pressed() -> void:
+	print("MAIN MENU BUTTON PRESSED")
+	GameData.save_game()
+	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
