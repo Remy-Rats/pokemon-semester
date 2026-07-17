@@ -55,7 +55,7 @@ A Pokémon-themed attendance and class management application built in Godot and
 - Save and load functionality
 
 ### v1.0
-- Fully playable release
+- Fully playable release, installation instructions to follow
 
 ## Author
 
