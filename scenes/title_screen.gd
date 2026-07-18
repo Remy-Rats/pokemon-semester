@@ -21,5 +21,6 @@ func _on_reset_save_data_button_pressed() -> void:
 	GameData.school_year = ""
 	GameData.character_index = 0
 	GameData.classes.clear()
+	GameData.class_pokemon_ids.clear()
 
 	print("All progress deleted.")
