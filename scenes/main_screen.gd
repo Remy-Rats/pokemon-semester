@@ -4,6 +4,13 @@ var pokemon_level: int = 1
 var pokemon_xp: int = 0
 var selected_class: int = -1
 
+func xp_needed_for_level(level: int) -> int:
+	return 40 + ((level - 1) * 15)
+
+
+func attendance_xp_for_level(level: int) -> int:
+	return 10 + ((level - 1) * 2)
+
 func _ready() -> void:
 	$MainLayout/Header/UserButton.text = GameData.trainer_name
 
@@ -19,6 +26,14 @@ func select_class(class_index: int) -> void:
 		return
 
 	selected_class = class_index
+	
+	var current_level = GameData.class_pokemon_levels[selected_class]
+	var current_xp = GameData.class_pokemon_xp[selected_class]
+	var needed_xp = xp_needed_for_level(current_level)
+
+	$MainLayout/Body/PokemonPanel/PokemonDisplay/PokemonXPBar.max_value = needed_xp
+	$MainLayout/Body/PokemonPanel/PokemonDisplay/PokemonXPBar.value = current_xp
+	$MainLayout/Body/PokemonPanel/PokemonDisplay/PokemonLevelLabel.text = "Level " + str(current_level)
 
 	$MainLayout/Body/PokemonPanel/PokemonDisplay/PokemonNameLabel.text = "Loading..."
 
@@ -123,6 +138,39 @@ func update_class_buttons() -> void:
 func _on_edit_classes_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/class_setup.tscn")
 
+func _on_attend_class_button_pressed() -> void:
+	if selected_class == -1:
+		print("Select a class first.")
+		return
+
+	if selected_class >= GameData.class_pokemon_xp.size():
+		return
+
+	var current_level = GameData.class_pokemon_levels[selected_class]
+	var gained_xp = attendance_xp_for_level(current_level)
+
+	GameData.class_pokemon_xp[selected_class] += gained_xp
+
+	var needed_xp = xp_needed_for_level(current_level)
+
+	while GameData.class_pokemon_xp[selected_class] >= needed_xp:
+		GameData.class_pokemon_xp[selected_class] -= needed_xp
+		GameData.class_pokemon_levels[selected_class] += 1
+
+	current_level = GameData.class_pokemon_levels[selected_class]
+	needed_xp = xp_needed_for_level(current_level)
+
+	print("Level Up! Level ", current_level)
+
+	var current_xp = GameData.class_pokemon_xp[selected_class]
+
+	$MainLayout/Body/PokemonPanel/PokemonDisplay/PokemonXPBar.max_value = needed_xp
+	$MainLayout/Body/PokemonPanel/PokemonDisplay/PokemonXPBar.value = current_xp
+	$MainLayout/Body/PokemonPanel/PokemonDisplay/PokemonLevelLabel.text = "Level " + str(current_level)
+
+	GameData.save_game()
+
+	print("Gained ", gained_xp, " XP")
 
 func _on_main_menu_button_pressed() -> void:
 	print("MAIN MENU BUTTON PRESSED")

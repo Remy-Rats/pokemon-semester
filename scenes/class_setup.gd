@@ -110,6 +110,7 @@ func choose_random_pokemon_id() -> int:
 	else:
 		return RARE_POKEMON_IDS.pick_random()
 
+
 func _ready() -> void:
 	var class_inputs = [
 		$MainLayout/ClassLayout/ClassEdit1,
@@ -159,6 +160,18 @@ func _on_button_pressed() -> void:
 
 	while GameData.class_pokemon_ids.size() > GameData.classes.size():
 		GameData.class_pokemon_ids.pop_back()
+	
+	while GameData.class_pokemon_xp.size() < GameData.classes.size():
+		GameData.class_pokemon_xp.append(0)
+
+	while GameData.class_pokemon_xp.size() > GameData.classes.size():
+		GameData.class_pokemon_xp.pop_back()
+	
+	while GameData.class_pokemon_levels.size() < GameData.classes.size():
+		GameData.class_pokemon_levels.append(1)
+
+	while GameData.class_pokemon_levels.size() > GameData.classes.size():
+		GameData.class_pokemon_levels.pop_back()
 
 	GameData.save_game()
 

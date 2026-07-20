@@ -8,6 +8,8 @@ var school_year: String = ""
 var character_index: int = 0
 var classes: Array[String] = []
 var class_pokemon_ids: Array[int] = []
+var class_pokemon_xp: Array[int] = []
+var class_pokemon_levels: Array[int] = []
 
 func save_game() -> void:
 	var save_data = {
@@ -16,7 +18,9 @@ func save_game() -> void:
 		"school_year": school_year,
 		"character_index": character_index,
 		"classes": classes,
-		"class_pokemon_ids": class_pokemon_ids
+		"class_pokemon_ids": class_pokemon_ids,
+		"class_pokemon_xp": class_pokemon_xp,
+		"class_pokemon_levels": class_pokemon_levels
 	}
 
 	var save_file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -52,17 +56,23 @@ func load_game() -> bool:
 	character_index = int(save_data.get("character_index", 0))
 
 	classes.clear()
-
 	for saved_class in save_data.get("classes", []):
 		classes.append(str(saved_class))
 
-	print("Game loaded!")
-	return true
-	
 	class_pokemon_ids.clear()
-
 	for pokemon_id in save_data.get("class_pokemon_ids", []):
 		class_pokemon_ids.append(int(pokemon_id))
+
+	class_pokemon_xp.clear()
+	for pokemon_xp in save_data.get("class_pokemon_xp", []):
+		class_pokemon_xp.append(int(pokemon_xp))
+	
+	class_pokemon_levels.clear()
+	for saved_level in save_data.get("class_pokemon_levels", []):
+		class_pokemon_levels.append(int(saved_level))
+
+	print("Game loaded!")
+	return true
 
 func delete_save() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
@@ -70,3 +80,12 @@ func delete_save() -> void:
 		print("Save deleted.")
 	else:
 		print("No save file found.")
+	
+	trainer_name = ""
+	major = ""
+	school_year = ""
+	character_index = 0
+	classes.clear()
+	class_pokemon_ids.clear()
+	class_pokemon_xp.clear()
+	class_pokemon_levels.clear()

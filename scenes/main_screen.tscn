@@ -193,5 +193,6 @@ horizontal_alignment = 1
 [connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/ClassButton6" to="." method="_on_class_button_6_pressed"]
 [connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/EditClassesButton" to="." method="_on_edit_classes_button_pressed"]
 [connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="MainLayout/Body/PokemonPanel/PokemonDisplay/AttendClassButton" to="." method="_on_attend_class_button_pressed"]
 [connection signal="request_completed" from="PokemonRequest" to="." method="_on_pokemon_request_request_completed"]
 [connection signal="request_completed" from="SpriteRequest" to="." method="_on_sprite_request_request_completed"]
