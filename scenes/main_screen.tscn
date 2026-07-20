@@ -185,6 +185,12 @@ horizontal_alignment = 1
 
 [node name="SpriteRequest" type="HTTPRequest" parent="." unique_id=333151734]
 
+[node name="EvolutionSpeciesRequest" type="HTTPRequest" parent="." unique_id=705351035]
+
+[node name="EvolutionChainRequest" type="HTTPRequest" parent="." unique_id=1869471989]
+
+[node name="EvolvedPokemonRequest" type="HTTPRequest" parent="." unique_id=648014241]
+
 [connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/ClassButton1" to="." method="_on_class_button_1_pressed"]
 [connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/ClassButton2" to="." method="_on_class_button_2_pressed"]
 [connection signal="pressed" from="MainLayout/Body/ClassesPanel/ClassesList/ClassButton3" to="." method="_on_class_button_3_pressed"]
@@ -196,3 +202,6 @@ horizontal_alignment = 1
 [connection signal="pressed" from="MainLayout/Body/PokemonPanel/PokemonDisplay/AttendClassButton" to="." method="_on_attend_class_button_pressed"]
 [connection signal="request_completed" from="PokemonRequest" to="." method="_on_pokemon_request_request_completed"]
 [connection signal="request_completed" from="SpriteRequest" to="." method="_on_sprite_request_request_completed"]
+[connection signal="request_completed" from="EvolutionSpeciesRequest" to="." method="_on_evolution_species_request_request_completed"]
+[connection signal="request_completed" from="EvolutionChainRequest" to="." method="_on_evolution_chain_request_request_completed"]
+[connection signal="request_completed" from="EvolvedPokemonRequest" to="." method="_on_evolved_pokemon_request_request_completed"]

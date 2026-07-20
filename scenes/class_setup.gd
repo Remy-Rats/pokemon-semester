@@ -172,6 +172,12 @@ func _on_button_pressed() -> void:
 
 	while GameData.class_pokemon_levels.size() > GameData.classes.size():
 		GameData.class_pokemon_levels.pop_back()
+	
+	while GameData.class_last_attended_dates.size() < GameData.classes.size():
+		GameData.class_last_attended_dates.append("")
+
+	while GameData.class_last_attended_dates.size() > GameData.classes.size():
+		GameData.class_last_attended_dates.pop_back()
 
 	GameData.save_game()
 

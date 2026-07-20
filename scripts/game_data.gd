@@ -10,6 +10,7 @@ var classes: Array[String] = []
 var class_pokemon_ids: Array[int] = []
 var class_pokemon_xp: Array[int] = []
 var class_pokemon_levels: Array[int] = []
+var class_last_attended_dates: Array[String] = []
 
 func save_game() -> void:
 	var save_data = {
@@ -20,7 +21,8 @@ func save_game() -> void:
 		"classes": classes,
 		"class_pokemon_ids": class_pokemon_ids,
 		"class_pokemon_xp": class_pokemon_xp,
-		"class_pokemon_levels": class_pokemon_levels
+		"class_pokemon_levels": class_pokemon_levels,
+		"class_last_attended_dates": class_last_attended_dates
 	}
 
 	var save_file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -70,6 +72,10 @@ func load_game() -> bool:
 	class_pokemon_levels.clear()
 	for saved_level in save_data.get("class_pokemon_levels", []):
 		class_pokemon_levels.append(int(saved_level))
+	
+	class_last_attended_dates.clear()
+	for saved_date in save_data.get("class_last_attended_dates", []):
+		class_last_attended_dates.append(str(saved_date))
 
 	print("Game loaded!")
 	return true
@@ -89,3 +95,4 @@ func delete_save() -> void:
 	class_pokemon_ids.clear()
 	class_pokemon_xp.clear()
 	class_pokemon_levels.clear()
+	class_last_attended_dates.clear()
