@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dvcrscyaji3w4"
+path="res://.godot/imported/ResetSaveButton_ClickMask.png-0d4e251f21b610a064472c943ae2d660.res"
+
+[deps]
+
+source_file="res://assets/ResetSaveButton_ClickMask.png"
+dest_files=["res://.godot/imported/ResetSaveButton_ClickMask.png-0d4e251f21b610a064472c943ae2d660.res"]
+
+[params]
+
+create_from=1
+threshold=0.5
